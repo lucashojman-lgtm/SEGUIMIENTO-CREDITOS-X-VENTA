@@ -16,7 +16,7 @@ var TEMPLATE_FILE_ID = 'PEGAR_AQUI_EL_ID_DE_plantilla_dashboard.html';
 
 // Carpeta de Drive donde guardar los dashboards generados.
 // Dejar '' para usar la misma carpeta donde está la planilla.
-var OUTPUT_FOLDER_ID = '';
+var OUTPUT_FOLDER_ID = '1VQPKig0A1YeBppDXYOYcvJWgfxIa5oax';
 
 var TZ = 'America/Argentina/Buenos_Aires';
 var MES_ABR = ['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
