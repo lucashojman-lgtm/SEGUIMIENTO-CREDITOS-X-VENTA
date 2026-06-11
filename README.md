@@ -51,3 +51,34 @@ estado a la fecha indicada en el encabezado.
 ## Pestañas del dashboard
 
 Resumen · Facturación · Cobranza · Pendientes · Anticuación · Clientes.
+
+---
+
+## Carga automática (todos los viernes a las 19 hs)
+
+Para que el dashboard se genere **solo**, sin tu computadora, se usa **Google Apps
+Script** (vive dentro de la planilla y corre en los servidores de Google). El código
+está en `apps_script/Code.gs`.
+
+**Instalación (una sola vez):**
+
+1. **Subí `plantilla_dashboard.html` a Google Drive.** Hacé clic derecho → `Compartir`
+   → `Copiar vínculo` y guardá el **ID** (el texto largo entre `/d/` y `/view`).
+2. Abrí la planilla en Google Sheets → menú **`Extensiones` → `Apps Script`**.
+3. Borrá lo que haya y **pegá todo el contenido de `apps_script/Code.gs`**.
+4. Arriba del código, en `TEMPLATE_FILE_ID`, pegá el ID del paso 1.
+   (Opcional: en `OUTPUT_FOLDER_ID` poné el ID de la carpeta donde querés que se
+   guarden los dashboards; si lo dejás vacío usa la carpeta de la planilla.)
+5. **Configurá la zona horaria**: `Configuración del proyecto` (ícono de engranaje) →
+   `Zona horaria` → **(GMT-03:00) Buenos Aires**. Así "las 19 hs" es hora argentina.
+6. Guardá (💾) y ejecutá **una vez** la función **`instalarDisparadorSemanal`**
+   (botón ▶). Google te va a pedir autorización: aceptá.
+7. *(Opcional, para probar)* ejecutá **`generarDashboard`** una vez y verificá que
+   aparezca el archivo `DSH_..._<fecha>.html` en tu Drive.
+
+Listo. A partir de ahí, **cada viernes a las 19 hs** se crea automáticamente en Drive
+el archivo `DSH_SEGUIMIENTO_CLIENTES_WS_<fecha>.html` con los datos del momento.
+
+> Si cambiás el diseño (`plantilla_dashboard.html`), volvé a subir el archivo a Drive
+> reemplazando el anterior (mismo ID) y el automático ya usa la versión nueva.
+
